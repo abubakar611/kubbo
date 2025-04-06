@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Kubo & Friends | Coming Soon</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -38,6 +38,8 @@
             justify-content: center;
             align-items: center;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Background Elements */
@@ -127,9 +129,11 @@
         .coming-soon-container {
             text-align: center;
             padding: 2rem;
+            width: 90%;
             max-width: 800px;
             background-color: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             animation: fadeIn 1s ease-out;
@@ -201,6 +205,7 @@
             justify-content: center;
             gap: 1.5rem;
             margin: 2rem 0;
+            flex-wrap: wrap;
         }
 
         .countdown-item {
@@ -208,6 +213,7 @@
             flex-direction: column;
             align-items: center;
             min-width: 80px;
+            margin-bottom: 1rem;
         }
 
         .countdown-value {
@@ -245,80 +251,12 @@
             letter-spacing: 1px;
         }
 
-        .newsletter {
-            margin: 2rem 0;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .newsletter p {
-            margin-bottom: 1rem;
-        }
-
-        .email-form {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .email-input {
-            flex: 1;
-            padding: 0.8rem 1.2rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 50px;
-            font-family: "Poppins", sans-serif;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .email-input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
-        }
-
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-family: "Poppins", sans-serif;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn:hover {
-            background-color: #ff5252;
-            transform: translateY(-2px);
-        }
-
-        .submit-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .submit-btn:active::after {
-            animation: ripple 1s ease-out;
-        }
-
         .social-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
             margin-top: 2rem;
+            flex-wrap: wrap;
         }
 
         .social-link {
@@ -332,6 +270,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             color: var(--dark-color);
+            margin-bottom: 0.5rem;
         }
 
         .social-link:hover {
@@ -342,6 +281,25 @@
 
         .social-link i {
             font-size: 1.5rem;
+        }
+
+        .back-to-home {
+            margin-top: 2rem;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .back-to-home:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-3px);
         }
 
         /* Animations */
@@ -454,21 +412,6 @@
             }
         }
 
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            20% {
-                transform: scale(25, 25);
-                opacity: 0.3;
-            }
-            100% {
-                opacity: 0;
-                transform: scale(40, 40);
-            }
-        }
-
         /* Responsive Styles */
         @media (max-width: 768px) {
             .coming-soon-container {
@@ -499,17 +442,17 @@
                 height: 60px;
                 font-size: 1.5rem;
             }
-
-            .email-form {
-                flex-direction: column;
-            }
-
-            .submit-btn {
-                width: 100%;
-            }
         }
 
         @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
             .countdown {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -537,6 +480,11 @@
 
             .social-link i {
                 font-size: 1.2rem;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
             }
         }
     </style>
@@ -570,7 +518,7 @@
         </div>
         
         <h1 class="glitch" data-text="Coming Soon">Coming Soon</h1>
-        <p class="subtitle">Kubo & Friends is launching soon! Get ready for the meme revolution.</p>
+        <p class="subtitle">Kubo & Friends is launching soon! follow us on social media for more.</p>
         
         <div class="countdown">
             <div class="countdown-item">
@@ -591,28 +539,27 @@
             </div>
         </div>
         
-        <div class="newsletter">
-            <p>For more information check out our social media for exclusive updates and early access.</p>
-        </div>
-        
         <div class="social-links">
-            <a href="#" class="social-link">
+            <a href="https://x.com/kubo_lilsolapes?t=7P-mpBwaUrHj1hCEoV-RcA&s=09" class="social-link">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="social-link">
+            <a href="https://t.me/+1JKQlkXqBNExMGEx" class="social-link">
                 <i class="fab fa-telegram"></i>
             </a>
-            <a href="#" class="social-link">
+           
+            <a href="https://youtube.com/@kuboandfriends?si=oMeSFd6aY2w2yo-Z" class="social-link">
                 <i class="fab fa-youtube"></i>
             </a>
-            <a href="#" class="social-link">
+            <a href="https://www.tiktok.com/@kuboandfriends45" class="social-link">
                 <i class="fab fa-tiktok"></i>
             </a>
         </div>
+        
+        <a href="index.html" class="back-to-home">Back to Home</a>
     </div>
 
     <script>
-        // Simple countdown timer (optional - you can remove this if you want a static page)
+        // Simple countdown timer
         function updateCountdown() {
             // Set your launch date here
             const launchDate = new Date('2025-01-01T00:00:00');
@@ -638,6 +585,21 @@
         
         // Initial update
         updateCountdown();
+        
+        // Disable animations on mobile for better performance
+        function checkMobile() {
+            if (window.innerWidth < 576) {
+                const memes = document.querySelectorAll('.floating-meme');
+                memes.forEach(meme => {
+                    meme.style.animation = 'none';
+                });
+            }
+        }
+        
+        // Check on load and resize
+        window.addEventListener('load', checkMobile);
+        window.addEventListener('resize', checkMobile);
     </script>
 </body>
 </html>
+
